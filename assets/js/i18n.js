@@ -2,7 +2,7 @@
 window.I18N = {
   ua: {
     htmlLang: 'uk',
-    meta_title: 'Rental Studio — оренда одягу та образів',
+    meta_title: 'IRENTAL Studio — оренда одягу та образів',
     meta_desc: 'Оренда одягу та готових образів для фотосесій і подій. Каталог за колекціями, доставка по Україні.',
     nav_catalog: 'Каталог', nav_terms: 'Умови', nav_contacts: 'Контакти',
     hero_title: 'Оренда одягу та готових образів',
@@ -44,13 +44,13 @@ window.I18N = {
     t6_b: 'Орендований одяг — це не новий товар із магазину. Речі перебувають в обігу та можуть мати незначні сліди використання або дрібні дефекти, які не впливають на їхній зовнішній вигляд під час зйомки чи заходу.',
     contacts_title: 'Контакти',
     contacts_text: 'Напишіть нам, і ми підберемо образ, запишемо на примірку та організуємо доставку.',
-    footer: 'Rental Studio. Оренда одягу',
+    footer: 'IRENTAL Studio. Оренда одягу',
     skip: 'Перейти до вмісту',
     lang_label: 'Мова сайту'
   },
   en: {
     htmlLang: 'en',
-    meta_title: 'Rental Studio — clothing and look rental',
+    meta_title: 'IRENTAL Studio — clothing and look rental',
     meta_desc: 'Rent outfits and complete looks for photoshoots and events. Catalogue by collections, delivery across Ukraine.',
     nav_catalog: 'Catalogue', nav_terms: 'Terms', nav_contacts: 'Contacts',
     hero_title: 'Clothing and complete looks for rent',
@@ -92,13 +92,13 @@ window.I18N = {
     t6_b: 'Rented clothing is not brand-new shop stock. Items are in circulation and may show slight signs of use or minor flaws that do not affect their appearance during a shoot or event.',
     contacts_title: 'Contacts',
     contacts_text: 'Message us and we will choose a look, book your fitting and arrange delivery.',
-    footer: 'Rental Studio. Clothing rental',
+    footer: 'IRENTAL Studio. Clothing rental',
     skip: 'Skip to content',
     lang_label: 'Site language'
   },
   ru: {
     htmlLang: 'ru',
-    meta_title: 'Rental Studio — аренда одежды и образов',
+    meta_title: 'IRENTAL Studio — аренда одежды и образов',
     meta_desc: 'Аренда одежды и готовых образов для фотосессий и событий. Каталог по коллекциям, доставка по Украине.',
     nav_catalog: 'Каталог', nav_terms: 'Условия', nav_contacts: 'Контакты',
     hero_title: 'Аренда одежды и готовых образов',
@@ -140,7 +140,7 @@ window.I18N = {
     t6_b: 'Арендованная одежда — это не новый товар из магазина. Вещи находятся в обороте и могут иметь незначительные следы использования или мелкие дефекты, которые не влияют на их внешний вид во время съёмки или мероприятия.',
     contacts_title: 'Контакты',
     contacts_text: 'Напишите нам, и мы подберём образ, запишем на примерку и организуем доставку.',
-    footer: 'Rental Studio. Аренда одежды',
+    footer: 'IRENTAL Studio. Аренда одежды',
     skip: 'Перейти к содержимому',
     lang_label: 'Язык сайта'
   }

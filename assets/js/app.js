@@ -1,4 +1,4 @@
-/* Rental Studio: каталог, картка образу, мови */
+/* IRENTAL Studio: каталог, картка образу, мови */
 (function () {
   var DATA = window.DATA, I18N = window.I18N, ACC = window.ACCESSORIES;
   var TG = DATA.contacts.telegram, IG = DATA.contacts.instagram;
