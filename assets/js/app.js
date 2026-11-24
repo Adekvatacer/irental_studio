@@ -53,12 +53,15 @@
         '<div class="row">' + cards + '</div></section>';
     }).join('');
 
-    var acc = ACC.map(function (a) { return '<li><span>' + esc(tr(a.n)) + '</span><b>' + a.p + ' ₴</b></li>'; }).join('');
+    var cam = '<svg class="ft-cam" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="12" cy="12" r="3.5"/></svg>';
+    var acc = ACC.map(function (a) {
+      return '<li class="ft-item" role="button" tabindex="0" aria-expanded="false" data-acc="' + a.id + '"><span class="ft-name">' + esc(tr(a.n)) + cam + '</span><b>' + a.p + ' ₴</b></li>';
+    }).join('');
     html += '<section class="ft coll" id="coll-final-touch" data-tint="gold"><div class="ft-box"><div>' +
       '<h2 class="coll-name">' + esc(finalTouch.name) + '</h2><p class="coll-tag">' + esc(tr(finalTouch.tagline)) + '</p>' +
       '<p style="color:var(--smoke);margin:16px 0 0;max-width:42ch">' + t('ft_text') + '</p>' +
       '<a class="btn gold" target="_blank" rel="noopener" href="' + TG + '?text=' + encodeURIComponent(t('ft_cta')) + '">' + t('ft_cta') + '</a></div>' +
-      '<ul class="ft-list" aria-label="' + esc(finalTouch.name) + '">' + acc + '</ul></div></section>';
+      '<div><ul class="ft-list" aria-label="' + esc(finalTouch.name) + '">' + acc + '</ul><p class="ft-hint">' + t('ft_hint') + '</p></div></div></section>';
     $('#catalog').innerHTML = html;
 
     var chips = colls.concat([finalTouch]).map(function (c) {
@@ -88,6 +91,64 @@
     var hero = $('#hero');
     new IntersectionObserver(function (en) { if (en[0].isIntersecting) { $$('#chips a').forEach(function (a) { a.removeAttribute('aria-current'); }); window.setBgTint && window.setBgTint('gold'); } }, { threshold: 0.5 }).observe(hero);
   }
+
+  /* ---------- Фото аксесуара: спливає при наведенні миші або дотику ---------- */
+  var pop = document.createElement('div');
+  pop.className = 'acc-pop'; pop.setAttribute('aria-hidden', 'true');
+  pop.innerHTML = '<img alt="" decoding="async">';
+  document.body.appendChild(pop);
+  var popImg = pop.firstChild, popFor = null, preloaded = false;
+
+  function preloadAcc() {
+    if (preloaded) return; preloaded = true;
+    ACC.forEach(function (a) { var i = new Image(); i.src = 'products/accessories/' + a.id + '.webp'; });
+  }
+  function showPop(li) {
+    preloadAcc();
+    var id = li.getAttribute('data-acc'), a = ACC.filter(function (x) { return x.id === id; })[0]; if (!a) return;
+    hidePop();
+    popFor = li; li.setAttribute('aria-expanded', 'true');
+    popImg.src = 'products/accessories/' + id + '.webp';
+    popImg.alt = tr(a.n);
+    var size = innerWidth < 560 ? 190 : 230;
+    pop.style.width = pop.style.height = size + 'px';
+    var r = li.getBoundingClientRect(), vw = document.documentElement.clientWidth, vh = innerHeight, gap = 14, minTop = 84, x, y;
+    if (r.left - size - gap >= 8) {                         /* ліворуч від рядка */
+      x = r.left - size - gap; y = r.top + r.height / 2 - size / 2;
+    } else if (r.right + size + gap <= vw - 8) {            /* праворуч */
+      x = r.right + gap; y = r.top + r.height / 2 - size / 2;
+    } else {                                                /* над рядком (вузький екран) */
+      x = Math.min(Math.max(8, r.right - size), vw - size - 8);
+      y = r.top - size - 10;
+      if (y < minTop) y = r.bottom + 10;
+    }
+    y = Math.min(Math.max(minTop, y), vh - size - 8);
+    pop.style.left = Math.round(x) + 'px'; pop.style.top = Math.round(y) + 'px';
+    pop.classList.add('on');
+  }
+  function hidePop() {
+    pop.classList.remove('on');
+    if (popFor) { popFor.setAttribute('aria-expanded', 'false'); popFor = null; }
+  }
+  var canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
+  document.addEventListener('mouseover', function (e) {
+    if (!canHover) return;
+    var li = e.target.closest && e.target.closest('.ft-item');
+    if (li && li !== popFor) showPop(li); else if (!li && popFor) hidePop();
+  });
+  document.addEventListener('click', function (e) {
+    var li = e.target.closest && e.target.closest('.ft-item');
+    if (li) { if (li === popFor && !canHover) hidePop(); else showPop(li); }
+    else if (popFor) hidePop();
+  });
+  document.addEventListener('keydown', function (e) {
+    var li = e.target.closest && e.target.closest('.ft-item');
+    if (li && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); li === popFor ? hidePop() : showPop(li); }
+    if (e.key === 'Escape' && popFor) hidePop();
+  });
+  document.addEventListener('focusin', function (e) { var li = e.target.closest && e.target.closest('.ft-item'); if (!li && popFor) hidePop(); });
+  addEventListener('scroll', function () { if (popFor) hidePop(); }, { passive: true });
+  addEventListener('resize', hidePop);
 
   /* ---------- Умови ---------- */
   function renderTerms() {

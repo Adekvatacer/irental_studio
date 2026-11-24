@@ -72,8 +72,11 @@ button { font: inherit; color: inherit; cursor: pointer; }
   display: flex; align-items: center; gap: 20px; justify-content: space-between;
   background: linear-gradient(180deg, rgba(12,9,7,.9), rgba(12,9,7,.55) 70%, transparent);
   -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
-.brand { font: 500 17px/1 var(--serif); letter-spacing: .34em; text-decoration: none; color: var(--gold); white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; }
-.brand-short { display: none; font-size: 22px; letter-spacing: .1em; }
+.brand { font: 500 17px/1 'Bodoni Moda', 'Didot', 'Bodoni 72', var(--serif); letter-spacing: .42em; text-decoration: none; white-space: nowrap; min-height: 44px; display: inline-flex; align-items: center; padding-left: .1em;
+  color: var(--gold);
+  background: linear-gradient(100deg, #b8892c 0%, var(--gold) 28%, var(--gold-hi) 48%, var(--gold) 68%, #b8892c 100%); background-size: 240% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; animation: foil 8s ease-in-out infinite; }
+.brand-short { display: none; font-size: 24px; font-weight: 500; letter-spacing: .06em; }
 .main-nav { display: flex; gap: 28px; margin-right: auto; margin-left: 12px; }
 .main-nav a { text-decoration: none; color: var(--smoke); font-size: 14px; letter-spacing: .06em; padding: 10px 2px; transition: color .25s; }
 .main-nav a:hover { color: var(--gold); }
@@ -131,19 +134,21 @@ button { font: inherit; color: inherit; cursor: pointer; }
 
 /* ===== Колекції ===== */
 .chips { position: sticky; top: calc(var(--top-h) + var(--safe-t)); z-index: 30; display: flex; gap: 8px; padding: 10px var(--pad); overflow-x: auto; scrollbar-width: none;
-  background: linear-gradient(180deg, rgba(12,9,7,.85), rgba(12,9,7,.6)); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-block: 1px solid var(--line); -webkit-overflow-scrolling: touch; }
+  background: none; border: 0; -webkit-overflow-scrolling: touch; }
 .chips::-webkit-scrollbar { display: none; }
+/* Без смуги: у кожної кнопки власний напівпрозорий фон, щоб читалась над контентом */
 .chips a { flex: none; text-decoration: none; min-height: 40px; display: inline-flex; align-items: center; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line);
+  background: rgba(12,9,7,.72); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
   font-size: 13px; letter-spacing: .08em; color: var(--smoke); transition: .25s; }
 .chips a[aria-current="true"] { background: var(--gold); color: var(--ink); border-color: transparent; font-weight: 600; }
 
 .coll { padding: clamp(56px, 10vw, 110px) 0 8px; }
 .coll-head { padding: 0 var(--pad); max-width: 1280px; margin: 0 auto 28px; }
-.coll-name { font: 500 clamp(40px, 9vw, 96px)/.95 var(--serif); margin: 0; letter-spacing: -.01em;
+.coll-name { font: 500 clamp(40px, 9vw, 96px)/1.15 var(--serif); margin: 0; padding-bottom: .06em; letter-spacing: -.01em;
   background: linear-gradient(100deg, var(--gold-deep), var(--gold) 30%, var(--gold-hi) 50%, var(--gold) 70%, var(--gold-deep)); background-size: 220% 100%;
   -webkit-background-clip: text; background-clip: text; color: transparent; animation: foil 9s ease-in-out infinite; }
 @keyframes foil { 0% { background-position: 100% 0; } 60%, 100% { background-position: -40% 0; } }
-.coll-tag { font: italic 400 clamp(18px, 3vw, 26px)/1.3 var(--serif); color: var(--smoke); margin: 10px 0 0; }
+.coll-tag { font: italic 400 clamp(18px, 3vw, 26px)/1.3 var(--serif); color: var(--smoke); margin: 6px 0 0; }
 .coll-count { margin: 6px 0 0; font-size: 12px; letter-spacing: .12em; color: var(--gold-deep); }
 .row { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: clamp(14px, 2.4vw, 28px); padding: 0 var(--pad); max-width: 1280px; margin: 0 auto; }
 @media (max-width: 720px) {
@@ -177,6 +182,17 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .ft-list li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
 .ft-list li b { font-weight: 600; color: var(--gold); white-space: nowrap; }
 .ft-box .btn { margin-top: 22px; }
+.ft-item { cursor: pointer; border-radius: 4px; transition: background .25s, padding .25s; -webkit-user-select: none; user-select: none; min-height: 48px; align-items: center; }
+.ft-item .ft-name { display: inline-flex; align-items: center; gap: 10px; }
+.ft-cam { color: var(--gold-deep); flex: none; transition: color .25s; }
+.ft-item[aria-expanded="true"], .ft-item:hover { background: rgba(217,178,95,.08); }
+.ft-item[aria-expanded="true"] .ft-cam, .ft-item:hover .ft-cam { color: var(--gold); }
+.ft-hint { margin: 12px 0 0; font-size: 12.5px; color: var(--smoke); }
+.acc-pop { position: fixed; z-index: 55; pointer-events: none; border-radius: 6px; overflow: hidden; border: 1px solid var(--gold);
+  box-shadow: 0 18px 50px rgba(0,0,0,.65), 0 0 0 4px rgba(12,9,7,.6); background: #120d0a;
+  opacity: 0; transform: translateY(8px) scale(.94); transition: opacity .22s ease, transform .3s cubic-bezier(.2,.7,.2,1); }
+.acc-pop.on { opacity: 1; transform: none; }
+.acc-pop img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ===== Умови ===== */
 .terms, .contacts { padding: clamp(64px, 10vw, 120px) var(--pad) 0; max-width: 860px; margin: 0 auto; }

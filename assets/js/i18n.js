@@ -27,6 +27,7 @@ window.I18N = {
     ft_tag: 'Дрібниці, що вирішують усе',
     ft_text: 'Прикраси, рукавички та взуття можна додати до будь-якого образу. Напишіть, і ми підберемо.',
     ft_cta: 'Підібрати аксесуари',
+    ft_hint: 'Наведіть або торкніться пункту, щоб побачити фото',
     terms_title: 'Умови оренди',
     terms_note: 'Оформлюючи оренду, ви підтверджуєте ознайомлення та згоду з усіма умовами.',
     t1_h: 'Примірка',
@@ -74,6 +75,7 @@ window.I18N = {
     ft_tag: 'The details that decide everything',
     ft_text: 'Jewellery, gloves and shoes can be added to any look. Message us and we will help you choose.',
     ft_cta: 'Choose accessories',
+    ft_hint: 'Hover or tap an item to see a photo',
     terms_title: 'Rental terms',
     terms_note: 'By placing a rental you confirm that you have read and agree to all the terms.',
     t1_h: 'Fitting',
@@ -121,6 +123,7 @@ window.I18N = {
     ft_tag: 'Мелочи, которые решают всё',
     ft_text: 'Украшения, перчатки и обувь можно добавить к любому образу. Напишите, и мы подберём.',
     ft_cta: 'Подобрать аксессуары',
+    ft_hint: 'Наведите или коснитесь пункта, чтобы увидеть фото',
     terms_title: 'Условия аренды',
     terms_note: 'Оформляя аренду, вы подтверждаете ознакомление и согласие со всеми условиями.',
     t1_h: 'Примерка',
@@ -145,11 +148,11 @@ window.I18N = {
 
 /* Аксесуари Final Touch: назва (3 мови) і ціна за фотосесію */
 window.ACCESSORIES = [
-  { n: { ua: 'Рукавички', en: 'Gloves', ru: 'Перчатки' }, p: '150' },
-  { n: { ua: 'Браслети, 2 шт', en: 'Bracelets, 2 pcs', ru: 'Браслеты, 2 шт' }, p: '200' },
-  { n: { ua: 'Чокер мереживний', en: 'Lace choker', ru: 'Кружевной чокер' }, p: '100–150' },
-  { n: { ua: 'Золоте кольє', en: 'Gold choker', ru: 'Золотое колье' }, p: '100' },
-  { n: { ua: 'Золоті прикраси', en: 'Gold jewellery', ru: 'Золотые украшения' }, p: '200' },
-  { n: { ua: 'Босоніжки', en: 'Sandals', ru: 'Босоножки' }, p: '350' },
-  { n: { ua: 'Підбори YSL', en: 'YSL heels', ru: 'Каблуки YSL' }, p: '600' }
+  { id: 'gloves', n: { ua: 'Рукавички', en: 'Gloves', ru: 'Перчатки' }, p: '150' },
+  { id: 'bracelets', n: { ua: 'Браслети, 2 шт', en: 'Bracelets, 2 pcs', ru: 'Браслеты, 2 шт' }, p: '200' },
+  { id: 'lace-choker', n: { ua: 'Чокер мереживний', en: 'Lace choker', ru: 'Кружевной чокер' }, p: '100–150' },
+  { id: 'gold-choker', n: { ua: 'Золоте кольє', en: 'Gold choker', ru: 'Золотое колье' }, p: '100' },
+  { id: 'gold-jewellery', n: { ua: 'Золоті прикраси', en: 'Gold jewellery', ru: 'Золотые украшения' }, p: '200' },
+  { id: 'sandals', n: { ua: 'Босоніжки', en: 'Sandals', ru: 'Босоножки' }, p: '350' },
+  { id: 'ysl-heels', n: { ua: 'Підбори YSL', en: 'YSL heels', ru: 'Каблуки YSL' }, p: '600' }
 ];
