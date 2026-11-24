@@ -48,4 +48,23 @@
   build();
   host.addEventListener('click', build);
   host.style.cursor = 'pointer';
+
+  /* М'який 3D-нахил за курсором (на телефоні: за пальцем) */
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var tilt = function (x, y) {
+      host.style.transform = 'perspective(900px) rotateY(' + (x * 12).toFixed(2) + 'deg) rotateX(' + (-y * 9).toFixed(2) + 'deg)';
+    };
+    var pending = null;
+    var onMove = function (e) {
+      pending = e;
+      if (onMove.raf) return;
+      onMove.raf = requestAnimationFrame(function () {
+        onMove.raf = 0;
+        if (pending) tilt(pending.clientX / innerWidth - 0.5, pending.clientY / innerHeight - 0.5);
+      });
+    };
+    addEventListener('pointermove', onMove, { passive: true });
+    document.addEventListener('pointerleave', function () { pending = null; tilt(0, 0); });
+    addEventListener('pointerup', function (e) { if (e.pointerType === 'touch') setTimeout(function () { tilt(0, 0); }, 600); });
+  }
 })();
