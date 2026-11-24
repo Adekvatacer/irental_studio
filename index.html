@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0c0907">
+<meta name="color-scheme" content="dark">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<title>Rental Studio — оренда одягу та образів</title>
+<meta name="description" content="Оренда одягу та готових образів для фотосесій і подій.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c0907'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='30' text-anchor='middle' fill='%23d9b25f'%3EIR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body data-tint="gold">
+<a class="skip" href="#catalog" data-i18n="skip">Перейти до вмісту</a>
+
+<!-- Динамічний фон -->
+<div class="bg" aria-hidden="true">
+  <div class="bg-glow"></div>
+  <div class="bg-stripes s1"></div>
+  <div class="bg-stripes s2"></div>
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-vignette"></div>
+</div>
+
+<header class="top" id="top">
+  <a class="brand" href="#hero" aria-label="Rental Studio">
+    <span class="brand-full">RENTAL STUDIO</span><span class="brand-short">IR</span>
+  </a>
+  <nav class="main-nav" aria-label="Menu">
+    <a href="#catalog" data-i18n="nav_catalog">Каталог</a>
+    <a href="#terms" data-i18n="nav_terms">Умови</a>
+    <a href="#contacts" data-i18n="nav_contacts">Контакти</a>
+  </nav>
+  <div class="top-tools">
+    <div class="lang" role="group" data-i18n-aria="lang_label" aria-label="Мова сайту">
+      <button type="button" data-lang="ua" aria-pressed="true">UA</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <a class="fab ig" id="ig-top" href="https://www.instagram.com/irental_studio/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r=".6" fill="currentColor"/></svg>
+    </a>
+    <a class="fab tg" id="tg-top" href="https://t.me/ira_biryukovaa" target="_blank" rel="noopener" aria-label="Telegram">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 3 11l5.5 2L10 19l3-3.5 4.5 3.5L21 4Z"/><path d="m8.5 13 8-5.5"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="hero">
+    <div class="hero-logo" id="hero-logo" role="img" aria-label="Rental Studio"></div>
+    <h1 class="hero-title" data-i18n="hero_title">Оренда одягу та готових образів</h1>
+    <p class="hero-sub" data-i18n="hero_sub"></p>
+    <div class="hero-cta">
+      <a class="btn gold" href="#catalog" data-i18n="cta_pick">Обрати образ</a>
+      <a class="btn ghost" href="#terms" data-i18n="cta_terms">Умови оренди</a>
+    </div>
+    <p class="hero-note" data-i18n="hero_delivery"></p>
+  </section>
+
+  <nav class="chips" id="chips" aria-label="Collections"></nav>
+
+  <div id="catalog"></div>
+
+  <section class="terms" id="terms" aria-labelledby="terms-h">
+    <h2 id="terms-h" class="sec-title" data-i18n="terms_title">Умови оренди</h2>
+    <div class="acc" id="acc"></div>
+    <p class="terms-note" data-i18n="terms_note"></p>
+  </section>
+
+  <section class="contacts" id="contacts" aria-labelledby="contacts-h">
+    <h2 id="contacts-h" class="sec-title" data-i18n="contacts_title">Контакти</h2>
+    <p class="contacts-text" data-i18n="contacts_text"></p>
+    <div class="contacts-btns">
+      <a class="btn gold" href="https://t.me/ira_biryukovaa" target="_blank" rel="noopener">Telegram</a>
+      <a class="btn ghost" href="https://www.instagram.com/irental_studio/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer class="foot"><span data-i18n="footer">Rental Studio. Оренда одягу</span></footer>
+
+<!-- Картка образу -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-name" hidden>
+  <div class="modal-scrim" data-close></div>
+  <div class="modal-panel" id="modal-panel">
+    <button type="button" class="m-close" data-close data-i18n-aria="close" aria-label="Закрити">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>
+    </button>
+    <div class="m-gallery">
+      <div class="m-track" id="m-track" tabindex="0"></div>
+      <button type="button" class="m-arrow prev" id="m-prev" data-i18n-aria="prev" aria-label="Назад"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg></button>
+      <button type="button" class="m-arrow next" id="m-next" data-i18n-aria="next" aria-label="Далі"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+      <div class="m-dots" id="m-dots"></div>
+    </div>
+    <div class="m-body">
+      <p class="m-coll" id="m-coll"></p>
+      <h3 class="m-name" id="m-name"></h3>
+      <p class="m-tag" id="m-tag"></p>
+
+      <div class="mode" role="group">
+        <button type="button" data-mode="shoot" aria-pressed="true" data-i18n="mode_shoot">Фотосесія</button>
+        <button type="button" data-mode="event" aria-pressed="false" data-i18n="mode_event">Подія</button>
+      </div>
+      <p class="mode-hint" id="mode-hint"></p>
+
+      <h4 class="m-sub" data-i18n="pick_items">З чого складається образ</h4>
+      <ul class="items" id="m-items"></ul>
+
+      <p class="m-fine" data-i18n="prepay"></p>
+      <p class="m-fine" data-i18n="fitting"></p>
+    </div>
+    <div class="m-bar">
+      <div class="m-total"><span data-i18n="total">Разом</span><b id="m-total">0 ₴</b></div>
+      <div class="m-actions">
+        <a class="btn gold" id="m-tg" href="#" target="_blank" rel="noopener" data-i18n="book_tg">Забронювати в Telegram</a>
+        <a class="btn ghost" id="m-ig" href="https://www.instagram.com/irental_studio/" target="_blank" rel="noopener" data-i18n="book_ig">Написати в Instagram</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/logo-data.js"></script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/logo.js"></script>
+<script src="assets/js/bg.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

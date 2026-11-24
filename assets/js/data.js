@@ -1,0 +1,155 @@
+window.DATA = {
+  "_note": "Ціни — за фотосесію; для події ×2 (оренда на 24 години). null = немає даних (демо).",
+  "contacts": {
+    "instagram": "https://www.instagram.com/irental_studio/",
+    "telegram": "https://t.me/ira_biryukovaa"
+  },
+  "collections": [
+    {
+      "id": "red-carpet",
+      "name": "Red Carpet",
+      "tagline": { "ua": "Камери вже чекають", "en": "The cameras are already waiting", "ru": "Камеры уже ждут" },
+      "accent": "bordeaux"
+    },
+    {
+      "id": "tiger-night",
+      "name": "Tiger Night",
+      "tagline": { "ua": "Для тих, хто виходить на полювання", "en": "For those who come out to hunt", "ru": "Для тех, кто выходит на охоту" },
+      "accent": "gold"
+    },
+    {
+      "id": "gala-prime",
+      "name": "Gala Prime",
+      "tagline": { "ua": "Вхід, який запам'ятають", "en": "An entrance they'll remember", "ru": "Выход, который запомнят" },
+      "accent": "gold"
+    },
+    {
+      "id": "ivory-room",
+      "name": "Ivory Room",
+      "tagline": { "ua": "Розкіш без гучності", "en": "Luxury without the volume", "ru": "Роскошь без громкости" },
+      "accent": "ivory"
+    },
+    {
+      "id": "final-touch",
+      "name": "Final Touch",
+      "tagline": { "ua": "Дрібниці, що вирішують усе", "en": "The details that decide everything", "ru": "Мелочи, которые решают всё" },
+      "accent": "gold",
+      "note": "Окрема категорія аксесуарів: чокери, рукавички, браслети, прикраси, взуття"
+    }
+  ],
+  "products": [
+    {
+      "id": "velvet-scarlet",
+      "name": "Velvet Scarlet",
+      "collection": "red-carpet",
+      "tagline": { "ua": "Червоне мереживо, що не потребує слів", "en": "Red lace that needs no words", "ru": "Красное кружево, которому не нужны слова" },
+      "colors": ["бордо"],
+      "photos": ["velvet-scarlet/1.webp", "velvet-scarlet/2.webp", "velvet-scarlet/3.webp"],
+      "cover": 2,
+      "items": [
+        { "name": { "ua": "Мереживна сукня бордо", "en": "Burgundy lace dress", "ru": "Кружевное платье бордо" }, "size": "XS-S", "price": 500 },
+        { "name": { "ua": "Босоніжки бордо", "en": "Burgundy strappy sandals", "ru": "Босоножки бордо" }, "size": "38-39", "price": 350 }
+      ]
+    },
+    {
+      "id": "rebel-bordeaux",
+      "name": "Rebel Bordeaux",
+      "collection": "red-carpet",
+      "tagline": { "ua": "Осінь, яка не просить дозволу", "en": "An autumn that doesn't ask permission", "ru": "Осень, которая не просит разрешения" },
+      "colors": ["бордо", "золото"],
+      "photos": ["rebel-bordeaux/1.webp", "rebel-bordeaux/2.webp", "rebel-bordeaux/3.webp"],
+      "cover": 1,
+      "items": [
+        { "name": { "ua": "Куртка бордо", "en": "Burgundy jacket", "ru": "Куртка бордо" }, "size": null, "price": 350 },
+        { "name": { "ua": "Сукня без підкладки", "en": "Unlined dress", "ru": "Платье без подкладки" }, "size": null, "price": 350 },
+        { "name": { "ua": "Шортики і топ під низ", "en": "Shorts and top to wear underneath", "ru": "Шорты и топ под низ" }, "size": null, "price": 300 },
+        { "name": { "ua": "Золоте кольє", "en": "Gold choker", "ru": "Золотое колье" }, "size": null, "price": 100 },
+        { "name": { "ua": "Босоніжки бордо", "en": "Burgundy sandals", "ru": "Босоножки бордо" }, "size": "38-39", "price": 350 }
+      ]
+    },
+    {
+      "id": "midnight-waist",
+      "name": "Midnight Waist",
+      "collection": "tiger-night",
+      "tagline": { "ua": "Талія, яка зупиняє розмови", "en": "A waist that stops conversations", "ru": "Талия, которая останавливает разговоры" },
+      "colors": ["чорний", "золото"],
+      "photos": ["midnight-waist/1.webp", "midnight-waist/2.webp"],
+      "cover": 1,
+      "items": [
+        { "name": { "ua": "Корсет з імітацією дуже тонкої талії", "en": "Corset with an ultra-slim waist effect", "ru": "Корсет с имитацией очень тонкой талии" }, "size": "S-M", "price": 550 },
+        { "name": { "ua": "Спідниця (також можна з гартерами)", "en": "Skirt (garters optional)", "ru": "Юбка (также можно с гартерами)" }, "size": null, "price": 350 },
+        { "name": { "ua": "Рукавички", "en": "Gloves", "ru": "Перчатки" }, "size": null, "price": 150 },
+        { "name": { "ua": "Браслети (2 шт)", "en": "Bracelets (2 pcs)", "ru": "Браслеты (2 шт)" }, "size": null, "price": 200 }
+      ]
+    },
+    {
+      "id": "noir-muse",
+      "name": "Noir Muse",
+      "collection": "tiger-night",
+      "tagline": { "ua": "Мереживо, кістки корсета і трохи небезпеки", "en": "Lace, corset boning and a little danger", "ru": "Кружево, косточки корсета и немного опасности" },
+      "colors": ["чорний"],
+      "photos": ["noir-muse/1.webp", "noir-muse/2.webp", "noir-muse/3.webp"],
+      "cover": 1,
+      "items": [
+        { "name": { "ua": "Сукня корсетна", "en": "Corset dress", "ru": "Корсетное платье" }, "size": "XS – невеликий M", "price": 750 },
+        { "name": { "ua": "Спідниця мереживна", "en": "Lace underskirt", "ru": "Кружевная юбка" }, "size": "XS-M", "price": 350 },
+        { "name": { "ua": "Чокер мереживний", "en": "Lace choker", "ru": "Кружевной чокер" }, "size": null, "price": 100 }
+      ]
+    },
+    {
+      "id": "lady-noir",
+      "name": "Lady Noir",
+      "collection": "gala-prime",
+      "tagline": { "ua": "Чорне мереживо, золоті деталі, ідеальний кадр", "en": "Black lace, gold details, the perfect frame", "ru": "Чёрное кружево, золотые детали, идеальный кадр" },
+      "colors": ["чорний", "золото"],
+      "photos": ["lady-noir/1.webp", "lady-noir/2.webp"],
+      "cover": 2,
+      "items": [
+        { "name": { "ua": "Сукня", "en": "Dress", "ru": "Платье" }, "size": "XS-S", "price": 750 },
+        { "name": { "ua": "Рукавички", "en": "Gloves", "ru": "Перчатки" }, "size": null, "price": 150 },
+        { "name": { "ua": "Підбори YSL", "en": "YSL heels", "ru": "Каблуки YSL" }, "size": "37-38", "price": 600 },
+        { "name": { "ua": "Чокер мереживний", "en": "Lace choker", "ru": "Кружевной чокер" }, "size": null, "price": 150 },
+        { "name": { "ua": "Золоті прикраси", "en": "Gold jewellery", "ru": "Золотые украшения" }, "size": null, "price": 200 }
+      ]
+    },
+    {
+      "id": "liquid-gold",
+      "name": "Liquid Gold",
+      "collection": "gala-prime",
+      "tagline": { "ua": "Сатин, що тече по фігурі як золото", "en": "Satin that pours over the figure like gold", "ru": "Сатин, который стекает по фигуре, как золото" },
+      "colors": ["бежевий", "золото"],
+      "photos": ["liquid-gold/1.webp", "liquid-gold/2.webp"],
+      "cover": 1,
+      "items": [
+        { "name": { "ua": "Бежева сукня з корсетом (ззаду на замочку, без шнурівки)", "en": "Beige corset dress (zip at the back, no lacing)", "ru": "Бежевое платье с корсетом (сзади на молнии, без шнуровки)" }, "size": "S-M", "price": 650 },
+        { "name": { "ua": "Браслети (2 шт)", "en": "Bracelets (2 pcs)", "ru": "Браслеты (2 шт)" }, "size": null, "price": 200 }
+      ]
+    },
+    {
+      "id": "snow-bloom",
+      "name": "Snow Bloom",
+      "collection": "ivory-room",
+      "tagline": { "ua": "Біла сукня і рукавички, що розцвітають", "en": "A white dress and gloves in full bloom", "ru": "Белое платье и перчатки, что расцветают" },
+      "colors": ["білий"],
+      "photos": ["snow-bloom/1.webp", "snow-bloom/2.webp"],
+      "cover": 1,
+      "items": [
+        { "name": { "ua": "Біла сукня з халтером", "en": "White halter dress", "ru": "Белое платье с халтером" }, "size": null, "price": null },
+        { "name": { "ua": "Рукавички з 3D-квітами", "en": "Gloves with 3D flowers", "ru": "Перчатки с 3D-цветами" }, "size": null, "price": null }
+      ],
+      "needs_data": "розмір і ціна відсутні (демо-значення)"
+    },
+    {
+      "id": "ivory-siren",
+      "name": "Ivory Siren",
+      "collection": "ivory-room",
+      "tagline": { "ua": "Біле мереживо з відкритою спиною", "en": "White lace with an open back", "ru": "Белое кружево с открытой спиной" },
+      "colors": ["білий", "чорний (є також)"],
+      "photos": ["ivory-siren/1.webp", "ivory-siren/2.webp", "ivory-siren/3.webp"],
+      "cover": 1,
+      "items": [
+        { "name": { "ua": "Мереживна сукня (є також у чорному)", "en": "Lace dress (also in black)", "ru": "Кружевное платье (есть также в чёрном)" }, "size": "XS-S", "price": 750 }
+      ]
+    }
+  ]
+};
